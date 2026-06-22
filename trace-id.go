@@ -35,14 +35,15 @@ type TraceIDHeader struct {
 
 // New created a new TraceIDHeader plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-	tIDHdr := &TraceIDHeader{
-		next:    next,
-		name:    name,
-		verbose: config.Verbose,
-	}
-
 	if config == nil {
 		return nil, fmt.Errorf("config can not be nil")
+	}
+
+	tIDHdr := &TraceIDHeader{
+		next:         next,
+		name:         name,
+		verbose:      config.Verbose,
+		headerPrefix: config.HeaderPrefix,
 	}
 
 	if config.HeaderName == "" {
@@ -51,25 +52,22 @@ func New(ctx context.Context, next http.Handler, config *Config, name string) (h
 		tIDHdr.headerName = config.HeaderName
 	}
 
-	tIDHdr.headerPrefix = config.HeaderPrefix
-
 	return tIDHdr, nil
-
 }
 
 func (t *TraceIDHeader) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
-	headerArr := req.Header[t.headerName]
-	randomUUID := fmt.Sprintf("%s%s", t.headerPrefix, newUUID().String())
-	if len(headerArr) == 0 {
-		req.Header.Add(t.headerName, randomUUID)
-	} else if headerArr[0] == "" {
-		req.Header[t.headerName][0] = randomUUID
+	traceID := req.Header.Get(t.headerName)
+
+	if traceID == "" {
+		traceID = fmt.Sprintf("%s%s", t.headerPrefix, newUUID().String())
+		req.Header.Set(t.headerName, traceID)
 	}
 
 	if t.verbose {
-		log.Println(req.Header[t.headerName][0])
+		log.Println(traceID)
 	}
 
-	rw.Header().Add(t.headerName, req.Header[t.headerName][0])
+	rw.Header().Set(t.headerName, traceID)
+
 	t.next.ServeHTTP(rw, req)
 }
