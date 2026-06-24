@@ -1,10 +1,10 @@
 # Traefik Request ID header
 
-[![release](https://img.shields.io/github/release/DoodleScheduling/traefik-envoy-ratelimit/all.svg)](https://github.com/DoodleScheduling/traefik-envoy-ratelimit/releases)
-[![report](https://goreportcard.com/badge/github.com/DoodleScheduling/traefik-envoy-ratelimit)](https://goreportcard.com/report/github.com/DoodleScheduling/traefik-envoy-ratelimit)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/DoodleScheduling/traefik-envoy-ratelimit/badge)](https://api.securityscorecards.dev/projects/github.com/DoodleScheduling/traefik-envoy-ratelimit)
-[![Coverage Status](https://coveralls.io/repos/github/DoodleScheduling/traefik-envoy-ratelimit/badge.svg?branch=master)](https://coveralls.io/github/DoodleScheduling/traefik-envoy-ratelimit?branch=master)
-[![license](https://img.shields.io/github/license/DoodleScheduling/traefik-envoy-ratelimit.svg)](https://github.com/DoodleScheduling/traefik-envoy-ratelimit/blob/master/LICENSE)
+[![release](https://img.shields.io/github/release/DoodleScheduling/traefik-requestid/all.svg)](https://github.com/DoodleScheduling/traefik-requestid/releases)
+[![report](https://goreportcard.com/badge/github.com/DoodleScheduling/traefik-requestid)](https://goreportcard.com/report/github.com/DoodleScheduling/traefik-requestid)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/DoodleScheduling/traefik-requestid/badge)](https://api.securityscorecards.dev/projects/github.com/DoodleScheduling/traefik-requestid)
+[![Coverage Status](https://coveralls.io/repos/github/DoodleScheduling/traefik-requestid/badge.svg?branch=master)](https://coveralls.io/github/DoodleScheduling/traefik-requestid?branch=master)
+[![license](https://img.shields.io/github/license/DoodleScheduling/traefik-requestid.svg)](https://github.com/DoodleScheduling/traefik-requestid/blob/master/LICENSE)
 
 Create a unique identifier and attach a header both up and downstream.
 By default the header is called `X-Request-Id`.
