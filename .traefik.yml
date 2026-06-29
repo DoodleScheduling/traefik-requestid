@@ -1,6 +1,6 @@
 displayName: Add request ID
 type: middleware
-import: github.com/doodlescheduling/traefik-requestid
+import: github.com/DoodleScheduling/traefik-requestid
 summary: 'Adds a unique request id header both up and downstrea'
 testData:
   headerName: 'X-Request-Id'

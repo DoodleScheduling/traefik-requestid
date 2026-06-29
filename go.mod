@@ -1,4 +1,4 @@
-module github.com/doodlescheduling/traefik-requestid
+module github.com/DoodleScheduling/traefik-requestid
 
 go 1.26
 
